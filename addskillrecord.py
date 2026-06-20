@@ -6,19 +6,20 @@ def add_skill():
     certification = input("Certification Name: ")
     renewal_date = input("Renewal Date (YYYY-MM-DD): ")
 
-    cursor.execute(
-        "INSERT INTO skills (employee_id, skill_name, skill_level, completion_date, certification, renewal_date) VALUES (?, ?, ?, ?, ?, ?)",
-        (employee_id, skill_name, skill_level, completion_date, certification, renewal_date)
-    )   VALUES (?, ?, ?, ?, ?, ?)
-    """,
-        (employee_id,
+    cursor.execute("""
+        "INSERT INTO skills
+        (employee_id, skill_name, skill_level,
+         completion_date, certification, renewal_date)
+       VALUES (?, ?, ?, ?, ?,)
+    """, (
+        employee_id,
         skill_name,
         skill_level, 
         completion_date,
         certification,
-        renewal_date)
+        renewal_date
     ))
    
-    conn.committ()
+    conn.commit()
     print("Skill record added successfully.")
     
